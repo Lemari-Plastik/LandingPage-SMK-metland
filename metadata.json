@@ -1,0 +1,6 @@
+{
+  "name": "SMK Metland Cibitung",
+  "description": "Portal resmi SMK Metland Cibitung - Excellence with Character. Informasi profil sekolah, berita, prestasi, galeri, dan pendaftaran SPMB Online.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
