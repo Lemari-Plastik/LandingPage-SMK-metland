@@ -14,7 +14,6 @@ import {
   ORGANIZATIONS_DATA,
   EXTRACURRICULAR_ITEMS,
   GALLERY_PHOTOS,
-  TEACHERS_AND_STAFF,
   INITIAL_SPMB_APPLICATIONS,
   SpmbApplication,
 } from './data/schoolData';
@@ -58,7 +57,6 @@ const SPMB_STORAGE_KEY = 'smk_metland_cibitung_spmb_2026';
 
 export default function App() {
   const [activeSlide, setActiveSlide] = useState<number>(0);
-  const [newsOffset, setNewsOffset] = useState<number>(0);
   const [activeNav, setActiveNav] = useState<string>('#beranda');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [modal, setModal] = useState<ActiveModal>({ type: 'none' });
@@ -115,15 +113,6 @@ export default function App() {
     setSpmbApplications((prev) => [newApp, ...prev]);
   };
 
-  const handlePrevNews = () => {
-    setNewsOffset((prev) => (prev === 0 ? Math.max(0, NEWS_ITEMS.length - 2) : prev - 2));
-  };
-
-  const handleNextNews = () => {
-    setNewsOffset((prev) => (prev + 2 >= NEWS_ITEMS.length ? 0 : prev + 2));
-  };
-
-  const visibleNews = NEWS_ITEMS.slice(newsOffset, newsOffset + 2);
   const currentHero = HERO_SLIDES[activeSlide];
 
   const scrollToSection = (href: string) => {
@@ -256,15 +245,6 @@ export default function App() {
             {/* Action Buttons */}
             <div className="hidden sm:flex items-center gap-3">
               <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                type="button"
-                onClick={() => setModal({ type: 'guru-staff' })}
-                className="px-4 py-2 rounded-full text-xs font-semibold text-slate-700 hover:text-teal-700 hover:bg-teal-50 transition border border-teal-200 cursor-pointer"
-              >
-                Guru &amp; Staff
-              </motion.button>
-              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="button"
@@ -307,15 +287,14 @@ export default function App() {
                 className="lg:hidden py-4 border-t border-teal-100 space-y-1 overflow-hidden"
               >
                 {[
-                  { label: 'Beranda', href: '#beranda', isModal: false },
-                  { label: 'Profil Sekolah', href: '#profil', isModal: false },
-                  { label: 'Program Keahlian', href: '#program', isModal: false },
-                  { label: 'Prestasi Membanggakan', href: '#prestasi', isModal: false },
-                  { label: 'Organisasi (Maheswara & OSIS)', href: '#organisasi', isModal: false },
-                  { label: 'Informasi & Agenda', href: '#informasi', isModal: false },
-                  { label: 'Galeri Foto Kegiatan', href: '#galeri', isModal: false },
-                  { label: 'Guru & Tenaga Pendidik', href: '#guru', isModal: true },
-                  { label: 'Kontak & Lokasi', href: '#kontak', isModal: false },
+                  { label: 'Beranda', href: '#beranda' },
+                  { label: 'Profil Sekolah', href: '#profil' },
+                  { label: 'Program Keahlian', href: '#program' },
+                  { label: 'Prestasi Membanggakan', href: '#prestasi' },
+                  { label: 'Organisasi (Maheswara & OSIS)', href: '#organisasi' },
+                  { label: 'Berita & Informasi', href: '#informasi' },
+                  { label: 'Galeri Foto Kegiatan', href: '#galeri' },
+                  { label: 'Kontak & Lokasi', href: '#kontak' },
                 ].map((nav) => (
                   <a
                     key={nav.href}
@@ -323,11 +302,7 @@ export default function App() {
                     onClick={(e) => {
                       e.preventDefault();
                       setMobileMenuOpen(false);
-                      if (nav.isModal) {
-                        setModal({ type: 'guru-staff' });
-                      } else {
-                        scrollToSection(nav.href);
-                      }
+                      scrollToSection(nav.href);
                     }}
                     className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800 transition"
                   >
@@ -480,7 +455,7 @@ export default function App() {
                 <div className="relative overflow-hidden rounded-2xl shadow-lg aspect-[3/4] bg-slate-900 border-2 border-teal-200 group">
                   <img
                     src="/head-teacher.jpg"
-                    alt="Roni Gufroni Rido, S.E. - Kepala Sekolah SMK Metland Cibitung"
+                    alt="Dr. Darmawan Sunarja, Drs, MM,Par. - Kepala Sekolah SMK Metland Cibitung"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
@@ -488,7 +463,7 @@ export default function App() {
                     <span className="inline-block bg-teal-500 text-slate-950 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full mb-1 shadow">
                       Kepala Sekolah
                     </span>
-                    <h3 className="font-extrabold text-base sm:text-lg">Roni Gufroni Rido, S.E.</h3>
+                    <h3 className="font-extrabold text-base sm:text-lg">Dr. Darmawan Sunarja, Drs, MM,Par</h3>
                     <p className="text-[11px] text-teal-200">SMK Metland Cibitung</p>
                   </div>
                 </div>
@@ -517,21 +492,15 @@ export default function App() {
                 </p>
                 <div className="border-t border-teal-100 pt-5 flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base sm:text-lg">Roni Gufroni Rido, S.E.</h3>
+                    <h3 className="font-bold text-slate-900 text-base sm:text-lg">Dr. Darmawan Sunarja, Drs, MM,Par</h3>
                     <p className="text-xs sm:text-sm text-teal-700 font-semibold">
                       Kepala Sekolah SMK Metland Cibitung
                     </p>
                   </div>
-                  <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
-                    type="button"
-                    onClick={() => setModal({ type: 'guru-staff' })}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-900 hover:underline cursor-pointer bg-teal-50 px-4 py-2 rounded-full border border-teal-200 transition"
-                  >
-                    <Users className="w-3.5 h-3.5" />
-                    Profil Guru &amp; Staff Pengajar
-                  </motion.button>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Pendidik &amp; Asesor Bersertifikasi
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -691,10 +660,10 @@ export default function App() {
                   Achievement &amp; Awards
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Prestasi Membanggakan
+                  Prestasi &amp; Kegiatan Membanggakan
                 </h2>
                 <p className="text-sm text-slate-500 mt-1">
-                  Bukti nyata komitmen kami dalam membimbing talenta unggul di bidang kejuaraan olahraga, seni budaya, dan vokasi sains.
+                  Bukti nyata komitmen kami dalam membimbing talenta unggul di bidang kejuaraan olahraga, kompetisi sains, serta perhelatan akbar sekolah.
                 </p>
               </div>
               <motion.button
@@ -750,7 +719,11 @@ export default function App() {
                       </h3>
                     </div>
                     <p className="text-xs text-slate-500 mt-4 flex items-center gap-1.5 pt-3 border-t border-teal-50">
-                      <Award className="w-4 h-4 text-teal-600 shrink-0" />
+                      {ach.category === 'School Event' ? (
+                        <Sparkles className="w-4 h-4 text-teal-600 shrink-0" />
+                      ) : (
+                        <Award className="w-4 h-4 text-teal-600 shrink-0" />
+                      )}
                       <span className="truncate">{ach.winner}</span>
                     </p>
                   </div>
@@ -870,7 +843,7 @@ export default function App() {
               >
                 <div className="relative h-64 sm:h-72 bg-slate-950 overflow-hidden">
                   <img
-                    src="/Maheswara-wiri_osis.jpeg"
+                    src="/osis.jpeg"
                     alt="Pengurus OSIS SMK Metland Cibitung"
                     className="w-full h-full object-cover group-hover:scale-108 transition duration-500"
                   />
@@ -997,7 +970,7 @@ export default function App() {
               </p>
             </motion.div>
             {/* Horizontal Activity Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {EXTRACURRICULAR_ITEMS.map((item, index) => (
                 <motion.div
                   key={item.id}
@@ -1005,19 +978,49 @@ export default function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
-                  whileHover={{ y: -7, scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ y: -7, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => setModal({ type: 'extracurricular-detail', item })}
-                  className="bg-teal-50/40 rounded-2xl p-5 border border-teal-100 text-center shadow-sm hover:shadow-lg hover:border-teal-400 hover:bg-white transition duration-300 cursor-pointer group flex flex-col items-center justify-between"
+                  className="bg-white rounded-2xl border border-teal-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-teal-400 transition duration-300 cursor-pointer group flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-white border border-teal-200/80 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-teal-50 transition duration-300 shadow-sm">
-                    {renderExtracurricularIcon(item.iconType)}
+                  <div className="relative h-40 bg-teal-950 overflow-hidden">
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-teal-800 to-teal-950 flex flex-col items-center justify-center text-teal-200">
+                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                          {renderExtracurricularIcon(item.iconType)}
+                        </div>
+                        <span className="text-[11px] font-semibold mt-2 text-teal-300">Kemanusiaan</span>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                    <span className="absolute top-2.5 left-2.5 text-[10px] font-bold uppercase tracking-wider bg-teal-600/90 text-white backdrop-blur-xs px-2.5 py-0.5 rounded-full shadow-xs">
+                      {item.category}
+                    </span>
                   </div>
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-teal-700 transition">
-                      {item.name}
-                    </h3>
-                    <p className="text-[11px] text-teal-700/80 font-medium mt-0.5">{item.category}</p>
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <div className="w-6 h-6 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
+                          {renderExtracurricularIcon(item.iconType)}
+                        </div>
+                        <h3 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-teal-700 transition leading-snug">
+                          {item.name}
+                        </h3>
+                      </div>
+                      <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="mt-3 pt-2.5 border-t border-teal-50 flex items-center justify-between text-[11px] font-semibold text-teal-700 group-hover:text-teal-900">
+                      <span>Detail Program</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition duration-200" />
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -1026,8 +1029,8 @@ export default function App() {
         </section>
         {/* END: ExtracurricularActivities */}
 
-        {/* BEGIN: NewsAndAgendaSection */}
-        <section className="py-20 bg-teal-50/30 border-t border-teal-100" data-purpose="news-and-events" id="informasi">
+        {/* BEGIN: NewsSection */}
+        <section className="py-20 bg-teal-50/30 border-t border-teal-100" data-purpose="news-section" id="informasi">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <motion.div
@@ -1039,13 +1042,13 @@ export default function App() {
             >
               <div>
                 <span className="text-xs font-bold tracking-widest text-teal-700 uppercase block mb-1">
-                  Pusat Informasi &amp; Berita
+                  Pusat Berita &amp; Informasi
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Kabar &amp; Warta Sekolah
+                  Kabar &amp; Warta Sekolah Terkini
                 </h2>
                 <p className="text-sm text-slate-500 mt-1">
-                  Kabar terkini seputar kegiatan, pencapaian siswa, kemitraan industri, dan pengumuman resmi.
+                  Warta terbaru seputar prestasi siswa, kurikulum industri, ekstrakurikuler, dan perkembangan civitas SMK Metland Cibitung.
                 </p>
               </div>
               <motion.button
@@ -1053,146 +1056,69 @@ export default function App() {
                 whileTap={{ scale: 0.95 }}
                 type="button"
                 onClick={() => setModal({ type: 'news-all' })}
-                className="mt-4 sm:mt-0 text-xs font-bold text-teal-700 hover:text-teal-800 hover:underline cursor-pointer inline-flex items-center gap-1"
+                className="mt-4 sm:mt-0 text-xs font-bold text-teal-700 hover:text-teal-800 hover:underline cursor-pointer inline-flex items-center gap-1.5"
               >
-                Lihat Semua Berita
+                Lihat Semua Berita ({NEWS_ITEMS.length})
                 <ArrowRight className="w-3.5 h-3.5" />
               </motion.button>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Left Column: News Cards */}
-              <div className="lg:col-span-8 space-y-6">
-                <div className="text-xs text-slate-500 flex items-center justify-between">
-                  <span>Geser untuk membaca warta lainnya</span>
-                  <div className="flex gap-2">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      type="button"
-                      onClick={handlePrevNews}
-                      aria-label="Berita sebelumnya"
-                      className="w-8 h-8 rounded-full border border-teal-200 flex items-center justify-center text-teal-700 hover:bg-teal-50 transition cursor-pointer"
+            {/* News Cards Grid (Pure News Section) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {NEWS_ITEMS.slice(0, 4).map((news, index) => (
+                <motion.article
+                  key={news.id}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  whileHover={{ y: -7 }}
+                  onClick={() => setModal({ type: 'news-detail', item: news })}
+                  className="bg-white rounded-2xl border border-teal-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-teal-300 transition duration-300 flex flex-col group cursor-pointer"
+                >
+                  <div className="relative h-44 bg-slate-900 overflow-hidden">
+                    {news.image ? (
+                      <img
+                        src={news.image}
+                        alt={news.title}
+                        className="w-full h-full object-cover group-hover:scale-108 transition duration-500"
+                      />
+                    ) : (
+                      <div className={`w-full h-full ${news.cardBgTint} flex items-center justify-center`}>
+                        <BookOpen className="w-10 h-10 text-teal-600" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                    <span
+                      className={`absolute top-3 left-3 ${news.categoryBadgeBg} text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider z-10 shadow-sm`}
                     >
-                      <ChevronLeft className="w-4 h-4" />
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      type="button"
-                      onClick={handleNextNews}
-                      aria-label="Berita selanjutnya"
-                      className="w-8 h-8 rounded-full border border-teal-200 flex items-center justify-center text-teal-700 hover:bg-teal-50 transition cursor-pointer"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </motion.button>
+                      {news.category}
+                    </span>
                   </div>
-                </div>
-
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={newsOffset}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.35, ease: 'easeOut' }}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-                  >
-                    {visibleNews.map((news) => (
-                      <motion.article
-                        key={news.id}
-                        whileHover={{ y: -6 }}
-                        onClick={() => setModal({ type: 'news-detail', item: news })}
-                        className="bg-white rounded-2xl border border-teal-100 overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col group cursor-pointer"
-                      >
-                        <div className="relative h-44 bg-slate-900 overflow-hidden">
-                          {news.image ? (
-                            <img
-                              src={news.image}
-                              alt={news.title}
-                              className="w-full h-full object-cover group-hover:scale-108 transition duration-500"
-                            />
-                          ) : (
-                            <div className={`w-full h-full ${news.cardBgTint} flex items-center justify-center`}>
-                              <BookOpen className="w-10 h-10 text-teal-600" />
-                            </div>
-                          )}
-                          <span
-                            className={`absolute top-3 left-3 ${news.categoryBadgeBg} text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider z-10 shadow-sm`}
-                          >
-                            {news.category}
-                          </span>
-                        </div>
-                        <div className="p-5 flex-1 flex flex-col justify-between">
-                          <div>
-                            <span className="text-[11px] font-medium text-slate-400 block mb-2">
-                              {news.date}
-                            </span>
-                            <h3 className="text-base font-bold text-slate-900 group-hover:text-teal-700 transition leading-snug mb-2">
-                              {news.title}
-                            </h3>
-                            <p className="text-xs text-slate-600 line-clamp-3 mb-4">{news.summary}</p>
-                          </div>
-                          <span className="text-xs font-semibold text-teal-700 group-hover:underline inline-flex items-center gap-1">
-                            Baca Selengkapnya
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </span>
-                        </div>
-                      </motion.article>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Right Column: Agenda Sekolah */}
-              <div className="lg:col-span-4 bg-white p-6 rounded-2xl border border-teal-100 flex flex-col justify-between shadow-sm">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-bold text-slate-900">Agenda Terdekat</h3>
-                    <button
-                      type="button"
-                      onClick={() => setModal({ type: 'agenda-all' })}
-                      className="text-xs font-semibold text-teal-700 hover:underline cursor-pointer"
-                    >
-                      Lihat Semua
-                    </button>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-[11px] font-medium text-slate-400 mb-2">
+                        <Calendar className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                        <span>{news.date}</span>
+                      </div>
+                      <h3 className="text-sm font-bold text-slate-900 group-hover:text-teal-700 transition leading-snug mb-2 line-clamp-2">
+                        {news.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">{news.summary}</p>
+                    </div>
+                    <div className="pt-3 border-t border-teal-50 flex items-center justify-between text-xs font-semibold text-teal-700 group-hover:text-teal-900">
+                      <span className="inline-flex items-center gap-1">
+                        Baca Selengkapnya
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition duration-200" />
+                      </span>
+                    </div>
                   </div>
-                  <div className="space-y-4">
-                    {AGENDA_ITEMS.slice(0, 4).map((ag, idx) => (
-                      <motion.div
-                        key={ag.id}
-                        whileHover={{ x: 5 }}
-                        onClick={() => setModal({ type: 'agenda-detail', item: ag })}
-                        className={`flex items-start gap-3.5 cursor-pointer group ${
-                          idx < 3 ? 'pb-3.5 border-b border-teal-50' : ''
-                        }`}
-                      >
-                        <div className="w-12 h-12 rounded-xl bg-teal-700 group-hover:bg-teal-600 transition text-white flex flex-col items-center justify-center flex-shrink-0 shadow-sm tabular-nums">
-                          <span className="text-base font-bold leading-none">{ag.day}</span>
-                          <span className="text-[9px] uppercase font-semibold">{ag.month}</span>
-                        </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-900 group-hover:text-teal-700 transition leading-snug">
-                            {ag.title}
-                          </h4>
-                          <p className="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-teal-600 shrink-0" />
-                            <span className="truncate">{ag.location}</span>
-                          </p>
-                          <p className="text-[10px] text-slate-400 mt-0.5 flex items-center gap-1">
-                            <Clock className="w-3 h-3 text-teal-600 shrink-0" />
-                            <span>{ag.time}</span>
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </motion.article>
+              ))}
             </div>
           </div>
         </section>
-        {/* END: NewsAndAgendaSection */}
+        {/* END: NewsSection */}
 
         {/* BEGIN: PhotoGallerySection */}
         <section className="py-20 bg-white" data-purpose="photo-gallery" id="galeri">
@@ -1515,13 +1441,16 @@ export default function App() {
                   </a>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    className="hover:text-white transition cursor-pointer text-left"
-                    onClick={() => setModal({ type: 'guru-staff' })}
+                  <a
+                    className="hover:text-white transition cursor-pointer"
+                    href="#informasi"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('#informasi');
+                    }}
                   >
-                    Guru &amp; Tenaga Pendidik
-                  </button>
+                    Berita &amp; Informasi
+                  </a>
                 </li>
                 <li>
                   <a
@@ -1534,49 +1463,6 @@ export default function App() {
                   >
                     Galeri Foto Kegiatan
                   </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Admissions Links */}
-            <div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Penerimaan Siswa</h4>
-              <ul className="space-y-2.5 text-xs text-teal-100/80">
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setModal({ type: 'spmb', initialTab: 'register' })}
-                    className="hover:text-white transition cursor-pointer"
-                  >
-                    Formulir SPMB Online
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setModal({ type: 'spmb', initialTab: 'status' })}
-                    className="hover:text-white transition cursor-pointer"
-                  >
-                    Cek Status Pendaftaran
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setModal({ type: 'spmb', initialTab: 'tuition' })}
-                    className="hover:text-white transition cursor-pointer"
-                  >
-                    Biaya Pendidikan &amp; DSP
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setModal({ type: 'spmb', initialTab: 'scholarship' })}
-                    className="hover:text-white transition cursor-pointer"
-                  >
-                    Program Beasiswa Prestasi
-                  </button>
                 </li>
               </ul>
             </div>
@@ -1652,7 +1538,6 @@ export default function App() {
         agendaList={AGENDA_ITEMS}
         achievementsList={ACHIEVEMENT_ITEMS}
         photosList={GALLERY_PHOTOS}
-        teachersList={TEACHERS_AND_STAFF}
         spmbApplications={spmbApplications}
         onAddSpmbApplication={handleAddSpmbApplication}
       />

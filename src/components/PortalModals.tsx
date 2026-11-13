@@ -7,7 +7,6 @@ import {
   AchievementItem,
   ExtracurricularItem,
   GalleryPhotoItem,
-  TeacherStaffItem,
   SpmbApplication,
   ORGANIZATIONS_DATA,
   OrganizationDetail,
@@ -57,7 +56,6 @@ export type ActiveModal =
   | { type: 'photo-detail'; item: GalleryPhotoItem }
   | { type: 'photo-all' }
   | { type: 'organization-detail'; orgKey?: 'maheswara' | 'osis' | 'collaboration' }
-  | { type: 'guru-staff' }
   | { type: 'spmb'; initialTab?: 'register' | 'status' | 'tuition' | 'scholarship' }
   | { type: 'legal'; section: 'privacy' | 'terms' };
 
@@ -69,7 +67,6 @@ interface PortalModalsProps {
   agendaList: AgendaItem[];
   achievementsList: AchievementItem[];
   photosList: GalleryPhotoItem[];
-  teachersList: TeacherStaffItem[];
   spmbApplications: SpmbApplication[];
   onAddSpmbApplication: (app: SpmbApplication) => void;
 }
@@ -82,7 +79,6 @@ export const PortalModals: React.FC<PortalModalsProps> = ({
   agendaList,
   achievementsList,
   photosList,
-  teachersList,
   spmbApplications,
   onAddSpmbApplication,
 }) => {
@@ -516,11 +512,11 @@ export const PortalModals: React.FC<PortalModalsProps> = ({
                   <span className="text-xs font-bold tracking-widest text-teal-700 uppercase block">
                     Pusat Prestasi &amp; Kejuaraan
                   </span>
-                  <h2 className="text-2xl font-extrabold text-slate-900">Prestasi Membanggakan</h2>
+                  <h2 className="text-2xl font-extrabold text-slate-900">Prestasi &amp; Kegiatan Membanggakan</h2>
                 </div>
                 {modal.type === 'achievement-all' && (
                   <div className="flex flex-wrap gap-1.5">
-                    {['Semua', 'Siswa', 'Guru', 'Sekolah', 'Ekstrakurikuler'].map((cat) => (
+                    {['Semua', 'Siswa', 'Guru', 'Sekolah', 'Ekstrakurikuler', 'School Event'].map((cat) => (
                       <button
                         key={cat}
                         onClick={() => setAchCategoryFilter(cat)}
@@ -578,8 +574,15 @@ export const PortalModals: React.FC<PortalModalsProps> = ({
                         <p className="text-xs text-slate-600 leading-relaxed mb-4">{ach.description}</p>
                       </div>
                       <div className="pt-3 border-t border-teal-50 text-xs font-semibold text-teal-800 flex items-center gap-1.5">
-                        <Award className="w-4 h-4 text-teal-600 shrink-0" />
-                        <span className="truncate">Peraih: {ach.winner}</span>
+                        {ach.category === 'School Event' ? (
+                          <Sparkles className="w-4 h-4 text-teal-600 shrink-0" />
+                        ) : (
+                          <Award className="w-4 h-4 text-teal-600 shrink-0" />
+                        )}
+                        <span className="truncate">
+                          {ach.category === 'School Event' ? 'Agenda: ' : 'Peraih: '}
+                          {ach.winner}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -800,51 +803,6 @@ export const PortalModals: React.FC<PortalModalsProps> = ({
                   </div>
                 </div>
               )}
-            </div>
-          )}
-
-          {/* 9. GURU & STAFF DIRECTORY */}
-          {modal.type === 'guru-staff' && (
-            <div>
-              <span className="text-xs font-bold tracking-widest text-teal-700 uppercase block mb-1">
-                Civitas Akademika
-              </span>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-2">Direktori Guru &amp; Tenaga Pendidik</h2>
-              <p className="text-xs sm:text-sm text-slate-600 mb-6">
-                Didukung oleh puluhan tenaga pendidik profesional, praktisi industri, dan asesor bersertifikat BNSP yang berdedikasi membimbing siswa SMK Metland Cibitung.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {teachersList.map((t) => (
-                  <div
-                    key={t.id}
-                    className="p-4 rounded-2xl border border-teal-100 bg-teal-50/30 flex items-start gap-3.5"
-                  >
-                    {t.image ? (
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        className="w-14 h-14 rounded-xl object-cover shrink-0 border border-teal-200 shadow-sm"
-                      />
-                    ) : (
-                      <div className="w-14 h-14 rounded-xl bg-teal-700 text-white font-bold flex items-center justify-center shrink-0 text-sm">
-                        {t.name
-                          .split(' ')
-                          .slice(0, 2)
-                          .map((n) => n[0])
-                          .join('')}
-                      </div>
-                    )}
-                    <div>
-                      <h3 className="text-sm font-bold text-slate-900">{t.name}</h3>
-                      <p className="text-xs font-semibold text-teal-700">{t.role}</p>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        {t.department} • {t.education}
-                      </p>
-                      <p className="text-[11px] text-slate-600 italic mt-2">"{t.quote}"</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           )}
 

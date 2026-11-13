@@ -4,7 +4,7 @@ Portal web resmi modern, responsif, dan interaktif untuk **SMK Metland Cibitung*
 
 ---
 
-## 🌟 Fitur Utama & Modul Portal
+## Fitur Utama & Modul Portal
 
 ### 1. Hero Section Sinematik & Dinamis
 - **Auto-Play Carousel**: Transisi slide otomatis setiap 6 detik disertai indikator navigasi responsif.
@@ -12,9 +12,9 @@ Portal web resmi modern, responsif, dan interaktif untuk **SMK Metland Cibitung*
 - **Aksi Cepat**: Tombol *Call to Action* langsung menuju Profil Sekolah dan Pendaftaran SPMB Online.
 
 ### 2. Profil Sekolah & Sambutan Kepala Sekolah
-- Menampilkan pesan sambutan dari Kepala Sekolah **Roni Gufroni Rido, S.E.** dengan foto resmi resolusi tinggi.
+- Menampilkan pesan sambutan dari Kepala Sekolah **Dr. Darmawan Sunarja, Drs, MM,Par** dengan foto resmi resolusi tinggi.
 - Informasi akreditasi sekolah (**Terakreditasi A**) dan komitmen *link-and-match* bersama dunia usaha dan dunia industri (DUDI) jaringan Metland Group.
-- Akses direktori profil guru, praktisi industri, dan tenaga pendidik bersertifikat BNSP.
+- Penegasan standar kompetensi pendidik dan asesor bersertifikasi BNSP.
 
 ### 3. 5 Program Keahlian Vokasi Terakreditasi
 Informasi kurikulum industri, fasilitas laboratorium praktik, prospek karir, dan mitra PKL untuk 5 jurusan:
@@ -24,32 +24,33 @@ Informasi kurikulum industri, fasilitas laboratorium praktik, prospek karir, dan
 4. **Perhotelan (Hospitality Services)**: Pelayanan front office, housekeeping, etika perhotelan berbintang empat di jaringan Hotel Horison (Metland Hotel Division).
 5. **Akuntansi & Keuangan Lembaga (AKL)**: Akuntansi digital terkomputerisasi (MYOB/Accurate), perpajakan e-Faktur, simulasi mini bank, dan FinTech.
 
-### 4. Pusat Prestasi & Kejuaraan
-- Dokumentasi penghargaan kejuaraan tingkat Kabupaten, Provinsi, dan Nasional.
-- Terintegrasi dengan foto kemenangan riil, di antaranya:
-  - **Juara 1 Turnamen Futsal Pelajar Kabupaten Bekasi 2026**
-  - **Juara 1 Lomba Tari Kreasi Nusantara FLS2N Jawa Barat 2026**
-  - **Gold Medal Kategori Folklore Festival Paduan Suara Pelajar 2026**
-  - **Best Showcase Duta Sekolah Maheswara-Maheswari 2027**
+### 4. Pusat Prestasi & Agenda Akbar
+- Dokumentasi kejuaraan bergengsi tingkat Kabupaten, Provinsi, dan Nasional serta agenda akbar sekolah.
+- Terintegrasi dengan foto riil, di antaranya:
+  - **Juara 1 Turnamen Futsal Pelajar Kabupaten Bekasi 2026** (`Futsal-Juara.jpeg`)
+  - **School Event: Wisuda & Pelepasan Siswa Angkatan ke-2 (Batch 2 Graduation)** (`Tari-Tradisional.jpeg`)
+  - **Winner Olimpiade Bahasa Inggris (English Olympiad Winner)** (`Winner-olimpiade-english.jpeg`)
+  - **Juara Lomba Puisi Se-Kabupaten Bekasi (Poem Competition Winner)** (`winner-puisi-sekabupaten.jpeg`)
 
 ### 5. Organisasi Siswa: Maheswara-Maheswari & OSIS
 Bagian khusus yang menyoroti kepemimpinan dan karakter pelajar:
-- **Maheswara & Maheswari (Duta Sekolah)**: Representasi resmi sekolah, pembinaan *public speaking*, MC keprotokoleran acara kenegaraan, dan promosi vokasi.
-- **OSIS SMK Metland Cibitung**: Lokomotif kesiswaan, koordinasi ekstrakurikuler, kaderisasi LDKS, dan penyelenggara *Classmeeting*.
+- **Maheswara & Maheswari (Duta Sekolah)**: Representasi resmi sekolah, pembinaan *public speaking*, MC keprotokoleran acara kenegaraan, dan promosi vokasi (`maheswara-maheswari.jpeg`).
+- **OSIS SMK Metland Cibitung**: Lokomotif kesiswaan, koordinasi ekstrakurikuler, kaderisasi LDKS, dan penyelenggara *Classmeeting* (`osis.jpeg`).
 - **Testimoni Tamu Kehormatan**: Menyematkan ulasan autentik dari para tamu undangan pagelaran Maheswara-Maheswari 2027 (Ade Olis, Sofi Azzahra, Karl Nizam Bahtiar, Shifa Zahrani).
 - **Modal Interaktif Organisasi**: Rincian visi, misi, dan program kerja kedua organisasi.
 
-### 6. 5 Ekstrakurikuler Pilihan
-Fokus pada 5 cabang kegiatan minat-bakat dengan jadwal latihan, pelatih, lokasi, dan catatan prestasi:
-1. **Futsal & Minisoccer** (Ikon `Activity` & dokumentasi latihan)
-2. **Basket** (Ikon `Dribbble`)
-3. **Paduan Suara** (Ikon `Music` & dokumentasi vokal)
-4. **Seni Tari** (Ikon `Drama` & dokumentasi pementasan busana adat)
+### 6. 5 Ekstrakurikuler Pilihan dengan Kartu Bergambar
+Fokus pada 5 cabang kegiatan minat-bakat dengan kartu berfoto thumbnail riil:
+1. **Futsal & Minisoccer** (Ikon `Activity` & foto dokumentasi `/Futsal.jpeg`)
+2. **Basket** (Ikon `Dribbble` & foto dokumentasi `/basket.jpeg`)
+3. **Paduan Suara** (Ikon `Music` & foto dokumentasi `/paduan-suara.jpeg`)
+4. **Seni Tari** (Ikon `Drama` & foto dokumentasi `/Tari-Tradisional.jpeg`)
 5. **PMR (Palang Merah Remaja)** (Ikon `HeartPulse` & materi pertolongan pertama)
 
-### 7. Warta Sekolah & Kalender Agenda
-- **Berita & Pengumuman**: Carousel warta kegiatan terbaru disertai kategori dan filter arsip lengkap.
-- **Agenda Terdekat**: Jadwal kegiatan akademik dan kesiswaan dengan penanda tanggal, waktu, dan lokasi.
+### 7. Pusat Warta & Berita Terkini
+- **Format Full-Width**: Kisi responsif 4 kolom yang menampilkan warta berita dan pengumuman sekolah terbaru.
+- **Kartu Berita Komprehensif**: Kategori berita, tanggal, cuplikan ringkasan, dan gambar pendukung.
+- **Arsip Berita Lengkap**: Modal interaktif untuk membaca berita selengkapnya serta seluruh arsip warta sekolah.
 
 ### 8. Galeri Foto Kegiatan & Fasilitas
 - Kisi galeri foto dokumentasi dengan metadata kategori dan tanggal.
@@ -69,7 +70,7 @@ Sistem pendaftaran murid baru terintegrasi:
 
 ---
 
-## 🛠️ Teknologi & Pustaka
+## Teknologi & Pustaka
 
 | Teknologi | Versi | Peran / Deskripsi |
 | :--- | :--- | :--- |
@@ -82,26 +83,29 @@ Sistem pendaftaran murid baru terintegrasi:
 
 ---
 
-## 📁 Struktur Direktori
+## Struktur Direktori
 
 ```text
 SMK-Metland/
 ├── public/                      # Aset publik statis (gambar, logo, dokumen)
 │   ├── background-hero-section.webp  # Foto lanskap kampus untuk hero section
+│   ├── basket.jpeg                   # Dokumentasi tim basket
 │   ├── Futsal.jpeg                   # Dokumentasi latihan futsal
 │   ├── Futsal-Juara.jpeg             # Dokumentasi tim juara futsal
 │   ├── head-teacher.jpg              # Foto resmi Kepala Sekolah
 │   ├── logo.png                      # Logo resmi SMK Metland Cibitung
 │   ├── maheswara-maheswari.jpeg      # Foto Duta Sekolah Maheswara-Maheswari
-│   ├── Maheswara-wiri_osis.jpeg      # Foto sinergi Pengurus OSIS & Maheswara
-│   ├── Paduan-Suara.jpeg             # Dokumentasi Paduan Suara Gita Metland
+│   ├── osis.jpeg                     # Foto resmi Pengurus OSIS
+│   ├── paduan-suara.jpeg             # Dokumentasi Paduan Suara Gita Metland
 │   ├── Tari-Tradisional.jpeg         # Dokumentasi Tari Tradisional Nusantara
-│   └── testimoni.txt                 # Catatan testimoni autentik tamu undangan
+│   ├── testimoni.txt                 # Catatan testimoni autentik tamu undangan
+│   ├── Winner-olimpiade-english.jpeg # Foto pemenang Olimpiade Bahasa Inggris
+│   └── winner-puisi-sekabupaten.jpeg # Foto pemenang Lomba Puisi Se-Kabupaten
 ├── src/
 │   ├── components/
 │   │   └── PortalModals.tsx     # Komponen modal dialog terpadu (Berita, SPMB, Organisasi, dll.)
 │   ├── data/
-│   │   └── schoolData.ts        # Data terpusat: jurusan, berita, agenda, prestasi, ekstrakurikuler
+│   │   └── schoolData.ts        # Data terpusat: jurusan, berita, prestasi, ekstrakurikuler
 │   ├── App.tsx                  # Halaman utama dan tata letak seluruh bagian website
 │   ├── index.css                # Konfigurasi Tailwind CSS v4 & variabel warna tema
 │   └── main.tsx                 # Titik masuk aplikasi React
@@ -113,7 +117,7 @@ SMK-Metland/
 
 ---
 
-## 🚀 Panduan Memulai (Getting Started)
+## Panduan Memulai (Getting Started)
 
 ### Prasyarat
 - **Node.js**: Versi `18.x` atau lebih baru
@@ -147,7 +151,7 @@ Hasil build produksi yang telah dioptimalkan akan tersedia di dalam direktori `d
 
 ---
 
-## 📍 Informasi & Kontak Sekolah
+## Informasi & Kontak Sekolah
 
 - **Institusi**: SMK Metland Cibitung
 - **Naungan**: Yayasan Pendidikan Metland (PT Metropolitan Land, Tbk)
@@ -157,5 +161,4 @@ Hasil build produksi yang telah dioptimalkan akan tersedia di dalam direktori `d
 
 ---
 
-© 2026 SMK Metland Cibitung. Yayasan Pendidikan Metland. Hak Cipta Dilindungi.
-
+(c) 2026 SMK Metland Cibitung. Yayasan Pendidikan Metland. Hak Cipta Dilindungi.
